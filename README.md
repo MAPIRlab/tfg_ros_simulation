@@ -2,13 +2,14 @@
 Este repositorio contiene una configuración de pkgs ROS diseñado para trabajar desde casa con un robot autónomo en Simulación. Es ideal para trabajos TFG/TFM que deben desarrollar su código en casa y posteriormente probarlo en un robot real. Se incluye el simulador (Stage), pkgs de navegación autónoma y los archivos de configuración necesario para comenzar.
 
 ## Navegación Autónoma (Move Base)
-Para poder disponer de un robot autónomo, capaz de navegar sin chocarse dentro de un entorno simulado, contamos con el pkg ROS "MoveBase". Este pkg fundamental de ROS, require a su vez de otros pkgs adicionales. Para su instlación, ejecuta los siguientes comandos (Nota, estos comandos están esritos para la versión "kinetic" de ROS, actualizalos a la versión que estés usando):
+Para poder disponer de un robot autónomo, capaz de navegar sin chocarse dentro de un entorno simulado, contamos con el pkg ROS "MoveBase". Este pkg fundamental de ROS, require a su vez de otros pkgs adicionales. Para su instlación, ejecuta los siguientes comandos (Nota, estos comandos están esritos para la versión "noetic" de ROS, actualizalos a la versión que estés usando):
 
-> sudo apt install ros-kinetic-fake-localization  
-  sudo apt install ros-kinetic-map-server  
-  sudo apt install ros-kinetic-dwa-local-planner  
-  sudo apt install ros-kinetic-move-base  
-  sudo apt install ros-kinetic-gmapping  
+> sudo apt install ros-noetic-fake-localization  
+  sudo apt install ros-noetic-map-server  
+  sudo apt install ros-noetic-dwa-local-planner  
+  sudo apt install ros-noetic-move-base  
+  sudo apt install ros-noetic-gmapping  
+  sudo apt install ros-noetic-robot-state-publisher
 
 ## Descarga de este Repositorio
 Una vez instalados los pkgs ROS del punto anterior, es necesario descargar este repositorio en nuestro "workspace/src". Lo colocaremos junto con nuestros pkgs ROS que tengamos que desarrollar para nuestro trabajo TFG/TFM. Una vez descargado, debemos compilar su contenido empleando "catkin_make" (o con el IDE de preferencia, eg Kdevelop)
