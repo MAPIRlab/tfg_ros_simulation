@@ -1,0 +1,87 @@
+# Definition of the initial tasks to be launched on the BT task_manager
+
+# This is the standard structure of a new task
+# task_i:
+#    name:
+#    priority: [0-9]  0=low priority, 9=high priority
+#    permanence: False(after 1 execution, the task is removed)
+#    args[]
+################################ PRIORITY 10 IS RESERVED FOR SYSTEM #####################################################
+task_0:
+    name:                       wait
+    priority:                   10
+    permanence:                 False
+    time_sec:                   5
+
+
+################################ FROM HERE BELLOW MAX PRIORITY IS 9 #####################################################
+task_1:
+    name:                       patrol
+    priority:                   0
+    permanence:                 True
+    random:                     True                    # random or sequencial
+    speech:                     True                    # False = face_detection, True=talk
+    pose_0:                     [1.0, 5.0, 0.0]         # 2.3.6
+    pose_1:                     [-0.5, 0.0, 1.6]        # 2.3.7
+    pose_2:                     [8.7, -2.7, 1.6]        # corridor right 
+    pose_3:                     [8.5, 8.0, -1.6]        # corridor 2.3.8
+
+task_20:
+    name:                       patrol
+    priority:                   0
+    permanence:                 True
+    random:                     True                        # random or sequencial
+    speech:                     True                       # False = face_detection, True=talk
+    pose_0:                     [0.0, -4.0, 0.0]            # 2.3.6
+    pose_1:                     [1.0, -9.0, 0.0]            # 2.3.7
+    pose_2:                     [5.0, -21.0, 1.5]           # corridor right 
+    pose_3:                     [5.5, -17.5, 0.0]           # corridor 2.3.8
+    pose_4:                     [5.5, -1.0, 0.0]            # corridor 2.3.6 door
+    pose_5:                     [5.99, 3.6, 0.0]            # corridor 2.3.5
+    pose_6:                     [5.99, 9.96, -1.5]          # corridor left
+    #pose_1:                     [-4.0, -10.0, 0.0]         # 2.3.7.i
+    
+    
+task_30:
+    name:                       movecare_scn
+    priority:                   8
+    permanence:                 False
+    user_expected_pose:         [-2.0, -4.0, 0.0]
+    user_name:                  Human
+    game_code:                  1
+    docking_station_pose:       [2.0, -3.5, 1.6]
+
+task_10:
+    name: go_to_point
+    priority: 8
+    permanence: False
+    pose: [3.0, -8.0, 3.14]
+        
+task_20:
+    name: face_detection
+    priority: 8
+    permanence: False
+    timeout: 3
+    speech: True
+
+task_30:
+    name: wait
+    priority: 8
+    permanence: False
+    time_sec: 5
+    
+task_40:
+    name: go_to_point
+    priority: 8
+    permanence: False
+    pose: [-2.0, -4.0, 0.0]
+    
+task_222:
+    name:                       battery_manager
+    priority:                   10
+    permanence:                 True
+    battery_topic:              /giraff_battery
+    low_battery_threshold:      24.2
+    critical_battery_threshold: 24.0
+    docking_station_pose:       [2.0, -4.0, 1.6]
+

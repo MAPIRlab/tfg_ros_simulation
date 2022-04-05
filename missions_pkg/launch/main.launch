@@ -1,0 +1,41 @@
+<!-- mission file to test Patrol simulation with Stage -->
+
+<launch>    
+
+    #======================#
+    ### ROBOT SIMULATION ###
+    #======================#
+    <param name="use_sim_time" value="true" />
+    
+    # Stage Simulator
+    <include file="$(find missions_pkg)/launch/simbot_stage.launch" >
+        <arg name="world_file" value="-d $(find missions_pkg)/stage/UMA_236_237.world" />
+        <arg name="disable_odometry" value="false" />
+    </include>
+    
+    # URDF model "GiraffX robot"
+    <include file="$(find missions_pkg)/launch/simbot_urdf.launch" />
+    
+    #================#
+    ### NAVIGATION ###
+    #================#
+    # MoveBase
+    <include file="$(find missions_pkg)/launch/simbot_move_base.launch" />
+    
+    # Map Server
+    <include file="$(find missions_pkg)/launch/simbot_map_server.launch">
+        <arg name="map_file" value="$(find missions_pkg)/maps/UMA_236_237.yaml" />
+    </include>
+    
+    # Localizator
+    <include file="$(find missions_pkg)/launch/simbot_fake_loc.launch" />
+    
+    # Keyboard
+    <include file="$(find missions_pkg)/launch/simbot_keyboard_control.launch" />
+    
+    #==========#
+    ### RVIZ ###
+    #==========#
+    <node name="rviz_player" pkg="rviz" type="rviz" args="-d $(find missions_pkg)/rviz/simbot_patrol.rviz"/>
+          
+</launch>
