@@ -6,7 +6,7 @@
   <arg name="launch_prefix" default="" />
   <arg name="global_planner_plugin" default="navfn/NavfnROS" />
 
-  <node pkg="move_base" type="move_base" respawn="false" name="move_base" launch-prefix="$(arg launch_prefix)">
+  <node pkg="move_base" type="move_base" name="move_base" respawn="false" launch-prefix="$(arg launch_prefix)">
   
   
     ## Planners
