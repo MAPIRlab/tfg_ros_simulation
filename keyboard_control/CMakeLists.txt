@@ -18,12 +18,15 @@ find_package(geometry_msgs REQUIRED)
 
 # Add Executables
 add_executable(keyboard_control src/keyboard_control.cpp)
+add_executable(keyboard_control_plus src/keyboard_control_plus.cpp)
 
 ament_target_dependencies(keyboard_control rclcpp std_msgs geometry_msgs)
+ament_target_dependencies(keyboard_control_plus rclcpp std_msgs geometry_msgs)
 
 # Declare and install executables
 install(TARGETS
   keyboard_control
+  keyboard_control_plus
   DESTINATION lib/${PROJECT_NAME}
 )
 
