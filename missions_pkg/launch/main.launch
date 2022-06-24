@@ -1,0 +1,9 @@
+<launch>
+
+  # COPPELIA SIMULATOR
+  <include file="/home/robotics/tfg_ros_simulation_ws/src/coppelia_ros2_pkg/launch/coppeliaSim.launch"/> 
+  
+  # Keyboard Control
+  <include file="/home/robotics/tfg_ros_simulation_ws/src/keyboard_control/launch/keyboard_control.launch"/>
+
+</launch>
