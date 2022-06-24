@@ -6,6 +6,8 @@
   # Keyboard Control
   <include file="/home/robotics/tfg_ros_simulation_ws/src/keyboard_control/launch/keyboard_control.launch"/>
 
+  # SLAM-MAPPING
+  <!-- <include file="/home/robotics/tfg_ros_simulation_ws/src/missions_pkg/launch/online_async_launch.py"/> -->
   # RVIZ
   <node pkg="rviz2" exec="rviz2" name="rviz2" output="screen" args="-d /home/robotics/tfg_ros_simulation_ws/src/missions_pkg/rviz/coppelia_sim.rviz"/>
 </launch>
