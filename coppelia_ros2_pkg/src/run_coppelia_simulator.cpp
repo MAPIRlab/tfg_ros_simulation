@@ -15,16 +15,28 @@ class CoppeliaSim: public rclcpp::Node
 
       this->declare_parameter<std::string>("coppelia_scene_path", "");
       this->get_parameter("coppelia_scene_path", coppelia_scene);
+      
+      this->declare_parameter<bool>("coppelia_headless", false);
+      this->get_parameter("coppelia_headless", coppelia_headless);
+      
     }
     
     void run()
     {
       //system("~/CoppeliaSim_Edu_V4_3_0_rev10_Ubuntu20_04/coppeliaSim.sh -s ~/tfg_ros_simulation_ws/src/Coppelia_scenes/ros2_mobile_robot.ttt");
-      system( (coppelia_dir+"/coppeliaSim.sh -s "+ coppelia_scene).c_str() );
+      if (coppelia_headless)
+      {
+        system( (coppelia_dir+"/coppeliaSim.sh -h -s "+ coppelia_scene).c_str() );
+      }
+      else
+      {
+        system( (coppelia_dir+"/coppeliaSim.sh -s "+ coppelia_scene).c_str() );
+      }
     }
     
   private:
     std::string coppelia_dir, coppelia_scene;
+    bool coppelia_headless;
 };
 
       
