@@ -1,0 +1,6 @@
+<launch>
+  <node pkg="coppelia_ros2_pkg" exec="coppelia_simulator" name="coppelia_similator" output="screen" launch-prefix="xterm -e">
+    <param name="coppelia_root_dir" value="~/CoppeliaSim_Edu_V4_3_0_rev10_Ubuntu20_04" /> 
+    <param name="coppelia_scene_path" value="~/tfg_ros_simulation_ws/src/Coppelia_scenes/ros2_mobile_robot.ttt" />
+  </node>
+</launch>
