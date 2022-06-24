@@ -17,10 +17,10 @@ Supported ROS2 versions:
 
     
 ### ERROR loading Plugin: Manual Compilation (only once)
-If the plugin cannot be loaded, then you should recompile it by yourself. It is open source. 
+If the plugin cannot be loaded, then you should recompile it by yourself. It is open source. Once compiled, copy the generated .so file to Coppelia directory.
 - By default this package contains a COLCON_IGNORE as it only has to be compiled once.
 - Remove the "COLCON_IGNORE" file
-- Edit `meta/interfaces.txt` if you need to include more ROS interfaces. This pkg already contains laser, odom and Twist, but others can be added.
+- Edit `meta/interfaces.txt` if you need to include more ROS interfaces. This pkg already contains laser abd Twist, but others can be added (see instructions below).
 - Install xsltproc:
     sudo apt install xsltproc 
 - Compile with:
@@ -28,6 +28,8 @@ If the plugin cannot be loaded, then you should recompile it by yourself. It is 
     ulimit -s unlimited #otherwise compilation might freeze/crash
     colcon build --packages-select sim_ros2_interface --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
 - Add the "COLCON_IGNORE" file to avoid further compilations
+- Copy the library to Coppelia root directory
+    ros_ws/build/sim_ros2_interface/libsimExtROS2.so --> CopeliaRoot Directory
 - check that the plugin is loaded when CoppeliaSim starts
 
 
