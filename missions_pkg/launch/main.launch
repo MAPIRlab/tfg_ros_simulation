@@ -1,13 +1,18 @@
 <launch>
 
   # COPPELIA SIMULATOR
-  <include file="/home/robotics/tfg_ros_simulation_ws/src/coppelia_ros2_pkg/launch/coppeliaSim.launch"/> 
+  <include file="$(find-pkg-share coppelia_ros2_pkg)/launch/coppeliaSim.launch"/> 
   
   # Keyboard Control
-  <include file="/home/robotics/tfg_ros_simulation_ws/src/keyboard_control/launch/keyboard_control.launch"/>
-
-  # SLAM-MAPPING
-  <!-- <include file="/home/robotics/tfg_ros_simulation_ws/src/missions_pkg/launch/online_async_launch.py"/> -->
+  <include file="$(find-pkg-share keyboard_control)/launch/keyboard_control.launch"/>
+ 
+  # NAV2 STACK
+  <include file="$(find-pkg-share missions_pkg)/launch/nav2_launch.py"/>
+  
+  # NAV2 SLAM-MAPPING
+   <!-- <include file="$(find-pkg-share missions_pkg)/launch/online_async_launch.py"/> -->
+   
+    
   # RVIZ
-  <node pkg="rviz2" exec="rviz2" name="rviz2" output="screen" args="-d /home/robotics/tfg_ros_simulation_ws/src/missions_pkg/rviz/coppelia_sim.rviz"/>
+  <node pkg="rviz2" exec="rviz2" name="rviz2" args="-d /home/robotics/tfg_ros_simulation_ws/src/missions_pkg/rviz/coppelia_sim.rviz" launch-prefix="xterm -e"/>
 </launch>
