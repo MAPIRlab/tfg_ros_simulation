@@ -1,5 +1,6 @@
 builtin_interfaces/msg/Duration
 builtin_interfaces/msg/Time
+rosgraph_msgs/msg/Clock
 geometry_msgs/msg/Quaternion
 geometry_msgs/msg/Transform
 geometry_msgs/msg/TransformStamped
