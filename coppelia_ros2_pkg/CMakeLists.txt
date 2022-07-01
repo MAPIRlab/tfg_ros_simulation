@@ -28,6 +28,7 @@ install(TARGETS
 # Install launch files.
 install(DIRECTORY
   launch
+  scenes
   DESTINATION share/${PROJECT_NAME}/
 )
 
