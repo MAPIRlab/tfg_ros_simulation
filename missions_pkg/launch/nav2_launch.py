@@ -32,10 +32,17 @@ def generate_launch_description():
     params_yaml_file = os.path.join(my_dir, 'launch', 'nav2_params.yaml')
     map_file = os.path.join(my_dir, 'maps', 'coppelia_map_gmapping.yaml')
     
+    logger = LaunchConfiguration("log_level")
+    
     return LaunchDescription([
         # Set env var to print messages to stdout immediately
         SetEnvironmentVariable('RCUTILS_LOGGING_BUFFERED_STREAM', '1'),
-
+        
+        DeclareLaunchArgument(
+            "log_level",
+            default_value=["info"],  #debug, info
+            description="Logging level",
+            ),
         Node(
             package='nav2_map_server',
             executable='map_server',
@@ -43,7 +50,8 @@ def generate_launch_description():
             output='screen',
             parameters=[{'use_sim_time': use_sim_time},
                         {'yaml_filename' : map_file}],
-            remappings=remappings),
+            remappings=remappings
+            ),
 
         Node(
             package='nav2_amcl',
@@ -51,7 +59,9 @@ def generate_launch_description():
             name='amcl',
             output='screen',
             parameters=[params_yaml_file],
-            remappings=remappings),
+            remappings=remappings,
+            arguments=['--ros-args', '--log-level', logger]
+            ),
 
         Node(
             package='nav2_lifecycle_manager',
@@ -60,5 +70,7 @@ def generate_launch_description():
             output='screen',
             parameters=[{'use_sim_time': use_sim_time},
                         {'autostart': True},
-                        {'node_names': ['map_server','amcl']}])
+                        {'node_names': ['map_server','amcl']}
+                        ]
+            )
     ])
