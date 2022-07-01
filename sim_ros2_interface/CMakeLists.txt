@@ -47,6 +47,7 @@ find_package(visualization_msgs REQUIRED)
 find_package(std_srvs REQUIRED)
 find_package(example_interfaces REQUIRED)
 find_package(image_transport)
+find_package(coppelia_ros2_pkg)
 
 if(NOT LIBPLUGIN_DIR)
     if(DEFINED ENV{COPPELIASIM_ROOT_DIR})
@@ -115,6 +116,7 @@ ament_target_dependencies(
     "visualization_msgs"
     "std_srvs"
     "example_interfaces"
+    "coppelia_ros2_pkg"
 )
 if(image_transport_FOUND)
     ament_target_dependencies(
