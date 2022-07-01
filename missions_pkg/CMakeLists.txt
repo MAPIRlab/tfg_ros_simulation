@@ -23,9 +23,10 @@ if(BUILD_TESTING)
 endif()
 
 
-# Install launch files.
+# Install launch files and related config files.
 install(DIRECTORY
   launch
+  maps  
   DESTINATION share/${PROJECT_NAME}/
 )
 

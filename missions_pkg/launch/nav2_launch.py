@@ -24,8 +24,7 @@ from ament_index_python.packages import get_package_share_directory
 
 def generate_launch_description():
     # Get the launch directory
-    #my_dir = get_package_share_directory('missions_pkg')
-    my_dir = '/home/robotics/tfg_ros_simulation_ws/src/missions_pkg'
+    my_dir = get_package_share_directory('missions_pkg')
 
     # common variables
     use_sim_time = True
