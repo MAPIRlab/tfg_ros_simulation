@@ -13,6 +13,12 @@ endif()
 # find dependencies
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
+find_package(rosidl_default_generators REQUIRED)
+
+# msg generation
+rosidl_generate_interfaces(${PROJECT_NAME}
+  "msg/RangeBearing.msg"
+)
 
 # Add Executables
 add_executable(coppelia_simulator src/run_coppelia_simulator.cpp)
