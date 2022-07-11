@@ -14,10 +14,12 @@ endif()
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
+find_package(std_msgs REQUIRED)
 
 # msg generation
 rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/RangeBearing.msg"
+   DEPENDENCIES builtin_interfaces std_msgs
 )
 
 # Add Executables
