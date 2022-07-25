@@ -19,6 +19,7 @@ find_package(std_msgs REQUIRED)
 # msg generation
 rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/RangeBearing.msg"
+  "msg/Ultrasonic.msg"
    DEPENDENCIES builtin_interfaces std_msgs
 )
 
@@ -32,6 +33,8 @@ install(TARGETS
   coppelia_simulator
   DESTINATION lib/${PROJECT_NAME}
 )
+rosidl_get_typesupport_target(cpp_typesupport_target ${PROJECT_NAME} "rosidl_typesupport_cpp")
+target_link_libraries(coppelia_simulator "${cpp_typesupport_target}")
 
 # Install launch files.
 install(DIRECTORY

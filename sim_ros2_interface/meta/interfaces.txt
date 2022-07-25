@@ -34,3 +34,4 @@ example_interfaces/action/Fibonacci
 sensor_msgs/msg/LaserScan
 geometry_msgs/msg/Twist
 coppelia_ros2_pkg/msg/RangeBearing
+coppelia_ros2_pkg/msg/Ultrasonic
