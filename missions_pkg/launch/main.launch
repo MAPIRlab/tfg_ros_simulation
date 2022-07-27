@@ -14,5 +14,5 @@
    
     
   # RVIZ
-  <node pkg="rviz2" exec="rviz2" name="rviz2" args="-d /home/robotics/tfg_ros_simulation_ws/src/missions_pkg/rviz/coppelia_sim.rviz" launch-prefix="xterm -e"/>
+  <node pkg="rviz2" exec="rviz2" name="rviz2" args="-d /home/robotics/dev_ws/src/tfg_ros_simulation/missions_pkg/rviz/coppelia_sim.rviz" launch-prefix="xterm -e"/>
 </launch>
