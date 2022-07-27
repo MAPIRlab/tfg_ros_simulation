@@ -7,7 +7,7 @@
   </node>
 -->
 
-  <node pkg="keyboard_control" exec="keyboard_control_plus" name="keyboard_control_plus" output="screen" launch-prefix="xterm -e">
+  <node pkg="keyboard_control" exec="keyboard_control_plus" name="keyboard_control_YouBot" output="screen" launch-prefix="xterm -e">
     <param name="linear_v_inc" value="2.0" /> 
     <param name="angular_v_inc" value="2.0" /> 
     <param name="publish_topic" value="/youBot/cmd_vel" />
