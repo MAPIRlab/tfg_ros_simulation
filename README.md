@@ -1,5 +1,5 @@
 # tfg_ros_simulation
-Configuración de pkgs ROS y ROS2 para trabajar desde casa con un robot autónomo en simulaicón.
+Configuración mínima de pkgs ROS y ROS2 (por defecto está activo el brach ros2) para trabajar desde casa con un robot autónomo en simulación. Diseñado para estudiantes de TFG de la universidad de Málaga, grupo de investigación MAPIR.
 
 
 # Sobre el Interface ROS2 de CoppeliaSim
