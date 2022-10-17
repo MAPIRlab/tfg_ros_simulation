@@ -26,7 +26,8 @@ endif()
 # Install launch files and related config files.
 install(DIRECTORY
   launch
-  maps  
+  maps
+  rviz
   DESTINATION share/${PROJECT_NAME}/
 )
 
