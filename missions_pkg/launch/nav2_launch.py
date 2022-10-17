@@ -43,6 +43,8 @@ def generate_launch_description():
             default_value=["info"],  #debug, info
             description="Logging level",
             ),
+
+        # MAP_SERVER
         Node(
             package='nav2_map_server',
             executable='map_server',
@@ -53,6 +55,7 @@ def generate_launch_description():
             remappings=remappings
             ),
 
+        # AMCL
         Node(
             package='nav2_amcl',
             executable='amcl',
@@ -63,6 +66,27 @@ def generate_launch_description():
             arguments=['--ros-args', '--log-level', logger]
             ),
 
+        # PLANNER (path planning)
+        Node(
+            package='nav2_planner',
+            executable='planner_server',
+            name='planner_server',
+            output='screen',
+            parameters=[params_yaml_file],
+            remappings=remappings
+            ),
+
+        # CONTROLLER (path following)
+        Node(
+            package='nav2_controller',
+            executable='controller_server',
+            name='controller_server',
+            output='screen',
+            parameters=[params_yaml_file],
+            remappings=remappings
+            ),
+
+        # LIFECYCLE MANAGER
         Node(
             package='nav2_lifecycle_manager',
             executable='lifecycle_manager',
@@ -70,7 +94,7 @@ def generate_launch_description():
             output='screen',
             parameters=[{'use_sim_time': use_sim_time},
                         {'autostart': True},
-                        {'node_names': ['map_server','amcl']}
+                        {'node_names': ['map_server','amcl','planner_server','controller_server']}
                         ]
             )
     ])
