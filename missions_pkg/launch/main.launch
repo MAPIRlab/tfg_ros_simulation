@@ -9,10 +9,8 @@
   # NAV2 STACK
   <include file="$(find-pkg-share missions_pkg)/launch/nav2_launch.py"/>
   
-  # NAV2 SLAM-MAPPING
-   <!-- <include file="$(find-pkg-share missions_pkg)/launch/online_async_launch.py"/> -->
-   
-    
-  # RVIZ
-  <node pkg="rviz2" exec="rviz2" name="rviz2" args="-d /home/robotics/dev_ws/src/tfg_ros_simulation/missions_pkg/rviz/coppelia_sim.rviz" launch-prefix="xterm -e"/>
+  # SLAM-MAPPING (map generation)
+  <!-- <include file="$(find-pkg-share missions_pkg)/launch/slam_mapping.py"/> -->
+
+  # RVIZ (see rvix.launch)
 </launch>

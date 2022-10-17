@@ -1,3 +1,5 @@
+# LAUNCH file to run a SLAM node for generating an occupancy gridmap from laser scans.
+
 import os
 
 from launch import LaunchDescription
@@ -14,11 +16,11 @@ def generate_launch_description():
     declare_use_sim_time_argument = DeclareLaunchArgument(
         'use_sim_time',
         default_value='true',
-        description='Use simulation/Gazebo clock')
+        description='Use simulation clock')
     declare_slam_params_file_cmd = DeclareLaunchArgument(
         'slam_params_file',
         default_value=os.path.join(get_package_share_directory("missions_pkg"),
-                                   'launch', 'mapper_params_online_async.yaml'),
+                                   'launch', 'slam_mapping_params.yaml'),
         description='Full path to the ROS2 parameters file to use for the slam_toolbox node')
 
     start_async_slam_toolbox_node = Node(
