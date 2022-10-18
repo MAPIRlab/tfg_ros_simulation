@@ -43,3 +43,4 @@ If the plugin cannot be loaded, then you should recompile it by yourself. It is 
 - Ensure Coppelia publish the correct TFs and topics.
 - Ensure nav2 nodes publish in the correct youbot/cmd_vel topic or apply remaps.  
 - check nav2_recoveries for Humble (not yet available)
+- Check simulation clock on Coppelia. Separate the code into a dummy instead of inside the robots to avoid issues when duplicating robots.
