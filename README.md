@@ -39,3 +39,7 @@ If the plugin cannot be loaded, then you should recompile it by yourself. It is 
   
   Complete instructions here: https://linuxize.com/post/how-to-add-swap-space-on-ubuntu-20-04/
   
+### ToDo
+- Ensure Coppelia publish the correct TFs and topics.
+- Ensure nav2 nodes publish in the correct youbot/cmd_vel topic or apply remaps.  
+- check nav2_recoveries for Humble (not yet available)
