@@ -66,6 +66,15 @@ def generate_launch_description():
             arguments=['--ros-args', '--log-level', logger]
             ),
 
+        # BT NAV
+        Node(
+            package='nav2_bt_navigator',
+            executable='bt_navigator',
+            name='bt_navigator',
+            output='screen',
+            parameters=[params_yaml_file],
+            remappings=remappings),
+
         # PLANNER (path planning)
         Node(
             package='nav2_planner',
@@ -86,6 +95,26 @@ def generate_launch_description():
             remappings=remappings
             ),
 
+        # RECOVERIES (recovery behaviours NOT YET in HUMBLE)
+        #Node(
+        #    package='nav2_recoveries',
+        #    executable='recoveries_server',
+        #    name='recoveries_server',
+        #    output='screen',
+        #    parameters=[params_yaml_file],
+        #    remappings=remappings),
+
+
+
+        # WAYPOINT NAV
+        Node(
+            package='nav2_waypoint_follower',
+            executable='waypoint_follower',
+            name='waypoint_follower',
+            output='screen',
+            parameters=[params_yaml_file],
+            remappings=remappings),
+
         # LIFECYCLE MANAGER
         Node(
             package='nav2_lifecycle_manager',
@@ -94,7 +123,13 @@ def generate_launch_description():
             output='screen',
             parameters=[{'use_sim_time': use_sim_time},
                         {'autostart': True},
-                        {'node_names': ['map_server','amcl','planner_server','controller_server']}
-                        ]
+                        {'node_names': ['map_server',
+                                        'amcl',
+                                        'planner_server',
+                                        'controller_server',
+                                        'bt_navigator',
+                                        'waypoint_follower']
+                        }
+                       ]
             )
     ])
