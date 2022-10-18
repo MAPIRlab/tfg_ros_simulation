@@ -12,5 +12,5 @@
   # SLAM-MAPPING (map generation)
   <!-- <include file="$(find-pkg-share missions_pkg)/launch/slam_mapping.py"/> -->
 
-  # RVIZ (see rvix.launch)
+  # RVIZ (see rviz.launch)
 </launch>

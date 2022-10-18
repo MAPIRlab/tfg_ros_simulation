@@ -28,6 +28,7 @@ install(DIRECTORY
   launch
   maps
   rviz
+  behavior_trees
   DESTINATION share/${PROJECT_NAME}/
 )
 
