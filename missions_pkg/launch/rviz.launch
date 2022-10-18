@@ -1,0 +1,5 @@
+<launch>
+  
+  # RVIZ (run before map_server to get the map)
+  <node pkg="rviz2" exec="rviz2" name="rviz2" args="-d $(find-pkg-share missions_pkg)/rviz/coppelia_sim.rviz" launch-prefix="xterm -e"/>
+</launch>
