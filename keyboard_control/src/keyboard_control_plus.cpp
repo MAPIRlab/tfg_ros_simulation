@@ -39,7 +39,7 @@ class keyboard: public rclcpp::Node
       // init vars
       exit_prog = false;
       key = 0;
-      paused = false;
+      paused = true;
       linear_v = 0.0;
       angular_v = 0.0;
     }
@@ -75,6 +75,7 @@ class keyboard: public rclcpp::Node
       printf("---------------------------\n");
       printf("Use arrow keys to move the robot.\n");
       printf("Press the space bar to stop the robot.\n");
+      printf("Press p to pause the program\n");
       printf("Press q to stop the program\n");
                   
       // Endless loop
@@ -98,10 +99,12 @@ class keyboard: public rclcpp::Node
         }
                 
         //publish current cmd_vel
-        geometry_msgs::msg::Twist twist;
-        twist.angular.z = angular_v;
-        twist.linear.x = linear_v;
-        publisher_->publish(twist);
+        if (!paused){
+          geometry_msgs::msg::Twist twist;
+          twist.angular.z = angular_v;
+          twist.linear.x = linear_v;
+          publisher_->publish(twist);
+        }
         
         //sleep a while
         fflush(stdout);
