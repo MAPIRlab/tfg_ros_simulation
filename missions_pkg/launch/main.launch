@@ -1,7 +1,6 @@
 <launch>
 
-  # COPPELIA SIMULATOR
-  <include file="$(find-pkg-share coppelia_ros2_pkg)/launch/coppeliaSim.launch"/> 
+  # COPPELIA SIMULATOR (see rviz.launch)
   
   # Keyboard Control
   <include file="$(find-pkg-share keyboard_control)/launch/keyboard_control.launch"/>
