@@ -3,11 +3,11 @@
   <node pkg="keyboard_control" exec="keyboard_control" name="keyboard_control" output="screen" launch-prefix="xterm -e">
     <param name="linear_v" value="5.0" /> 
     <param name="angular_v" value="5.0" /> 
-    <param name="publish_topic" value="/youBot/cmd_vel" />
+    <param name="publish_topic" value="/PioneerP3DX/cmd_vel" />
   </node>
 -->
 
-  <node pkg="keyboard_control" exec="keyboard_control_plus" name="keyboard_control_YouBot" output="screen" launch-prefix="xterm -e">
+  <node pkg="keyboard_control" exec="keyboard_control_plus" name="keyboard_control" output="screen" launch-prefix="xterm -e">
     <param name="linear_v_inc" value="1.0" />
     <param name="angular_v_inc" value="1.56" />
     <param name="publish_topic" value="/PioneerP3DX/cmd_vel" />
