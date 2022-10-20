@@ -1,0 +1,10 @@
+<launch>
+
+  # RVIZ (run before map_server to get the map)
+  <!-- <node pkg="rviz2" exec="rviz2" name="rviz2" args="-d $(find-pkg-share missions_pkg)/rviz/coppelia_sim.rviz"/> -->
+
+  # COPPELIA SIMULATOR
+  <include file="$(find-pkg-share coppelia_ros2_pkg)/launch/coppeliaSim.launch"/>
+
+  <!-- <include file="$(find-pkg-share keyboard_control)/launch/keyboard_control.launch"/> -->
+</launch>
