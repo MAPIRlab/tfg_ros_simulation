@@ -26,13 +26,16 @@ class keyboard: public rclcpp::Node
       //Read parameters and set default values
       this->declare_parameter<float>("linear_v_inc", 0.5);
       this->get_parameter("linear_v_inc", linear_v_inc);
+      printf("[KeyboardControlPlus] linear_v_inc: %.2f\n",linear_v_inc);
 
       this->declare_parameter<float>("angular_v_inc", 0.5);
       this->get_parameter("angular_v_inc", angular_v_inc);
+      printf("[KeyboardControlPlus] angular_v_inc: %.2f\n",angular_v_inc);
 
-      this->declare_parameter<std::string>("publish_topic", "/youBot/cmd_vel");
+      this->declare_parameter<std::string>("publish_topic", "/robotName/cmd_vel");
       this->get_parameter("publish_topic", publish_topic);
-     
+      printf("[KeyboardControlPlus] publish_topic: %s\n",publish_topic.c_str());
+
       //Set publisher topic
       publisher_ = this->create_publisher<geometry_msgs::msg::Twist>(publish_topic, 1);
       
