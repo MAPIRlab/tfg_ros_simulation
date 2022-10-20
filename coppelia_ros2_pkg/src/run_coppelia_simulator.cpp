@@ -9,7 +9,7 @@ class CoppeliaSim: public rclcpp::Node
     CoppeliaSim()
     : Node("coppelia_simulator")
     {
-      //Read parameters and set default values
+      //Declare parameters and set default values
       this->declare_parameter<std::string>("coppelia_root_dir", "");
       this->get_parameter("coppelia_root_dir", coppelia_dir);
 
@@ -19,18 +19,19 @@ class CoppeliaSim: public rclcpp::Node
       this->declare_parameter<bool>("coppelia_headless", false);
       this->get_parameter("coppelia_headless", coppelia_headless);
       
+      // Declare other params (for the scene)
+      this->declare_parameter<std::int8_t>("num_beacons", 5);
+      this->declare_parameter<bool>("show_laser", false);
     }
     
     void run()
     {
       //system("~/CoppeliaSim_Edu_V4_3_0_rev10_Ubuntu20_04/coppeliaSim.sh -s ~/tfg_ros_simulation_ws/src/Coppelia_scenes/ros2_mobile_robot.ttt");
-      if (coppelia_headless)
-      {
-        system( (coppelia_dir+"/coppeliaSim.sh -h -s "+ coppelia_scene).c_str() );
+      if (coppelia_headless){
+        system( (coppelia_dir+"/coppeliaSim.sh -h -s "+ coppelia_scene + " &").c_str() );
       }
-      else
-      {
-        system( (coppelia_dir+"/coppeliaSim.sh -s "+ coppelia_scene).c_str() );
+      else{
+        system( (coppelia_dir+"/coppeliaSim.sh -s "+ coppelia_scene + " &").c_str() );
       }
     }
     
@@ -47,7 +48,13 @@ int main(int argc, char * argv[])
   
   //create object
   std::shared_ptr<CoppeliaSim> myNode = std::make_shared<CoppeliaSim>();
+
+  //launch simulator
   myNode->run();
+
+  // Iterate (for param_server and related services)
+  printf("[CoppeliaSimulator] Simulator launched. Now spinning!");
+  rclcpp::spin(myNode);
 
   rclcpp::shutdown();
   return 0;
