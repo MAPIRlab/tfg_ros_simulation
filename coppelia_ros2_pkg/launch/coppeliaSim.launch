@@ -6,7 +6,11 @@
     <param name="coppelia_headless" value="False" />
     
     # SCENE PARAMETERS
-    <param name="num_beacons" value="7" />
-    <param name="show_laser" value="True" />
+    <param name="num_beacons" value="7" />      # number of beacons to generate (range-bearing)
+    <param name="show_laser" value="True" />    # show laser on Coppelia simulation (CPU intense)
+    <param name="tf_gt" value="False" />        # publish over TF the map->base_link transf (groundt-truth pose)
+    <param name="tf_odom" value="True" />       # publish over TF the odom->base_link transf (odom)
+    <param name="var_v" value="0.01" />         # noise in linear velocity commands
+    <param name="var_w" value="0.01" />         # noise in angular velocity commands
   </node>
 </launch>

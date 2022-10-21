@@ -20,8 +20,12 @@ class CoppeliaSim: public rclcpp::Node
       this->get_parameter("coppelia_headless", coppelia_headless);
       
       // Declare other params (for the scene)
-      this->declare_parameter<std::int8_t>("num_beacons", 5);
       this->declare_parameter<bool>("show_laser", false);
+      this->declare_parameter<bool>("tf_gt", false);
+      this->declare_parameter<bool>("tf_odom", true);
+      this->declare_parameter<int>("num_beacons", 5);
+      this->declare_parameter<float>("var_v",0.0);
+      this->declare_parameter<float>("var_w",0.0);
     }
     
     void run()
