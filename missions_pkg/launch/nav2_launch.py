@@ -92,7 +92,7 @@ def generate_launch_description():
             name='controller_server',
             output='screen',
             parameters=[params_yaml_file],
-            remappings=[('/cmd_vel', '/youBot/cmd_vel')]
+            remappings=[('/cmd_vel', '/PioneerP3DX/cmd_vel')]
             ),
 
         # RECOVERIES (recovery behaviours NOT YET in HUMBLE)
