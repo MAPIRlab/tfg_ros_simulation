@@ -1,5 +1,5 @@
 # tfg_ros_simulation
-Configuración mínima de pkgs ROS y ROS2 (por defecto está activo el brach ros2) para trabajar desde casa con un robot autónomo en simulación. Diseñado para estudiantes de TFG de la universidad de Málaga, grupo de investigación MAPIR.
+Configuración mínima de pkgs ROS y ROS2 (por defecto está activo el branch ros2) para trabajar desde casa con un robot autónomo en simulación. Diseñado para estudiantes de TFG de la universidad de Málaga, grupo de investigación MAPIR.
 
 
 # Sobre el Interface ROS2 de CoppeliaSim
@@ -41,5 +41,4 @@ If the plugin cannot be loaded, then you should recompile it by yourself. It is 
   
 ### ToDo
 - check nav2_recoveries for Humble (not yet available)
-- Check simulation clock on Coppelia. Separate the code into a dummy instead of inside the robots to avoid issues when duplicating robots.
-- Leave only one robot on Coppelia, with correct namespace and all sensors. Improve Comments.
+- Check GetParams from Coppelia. Right now can only read params from node sim_ros2_interface.
