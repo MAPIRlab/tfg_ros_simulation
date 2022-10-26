@@ -1,4 +1,6 @@
 # LAUNCH file to run a SLAM node for generating an occupancy gridmap from laser scans.
+# USE THIS COMMAND TO SAVE TO FILE
+# ros2 run nav2_map_server map_saver_cli -f map_name
 
 import os
 
