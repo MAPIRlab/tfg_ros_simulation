@@ -30,7 +30,7 @@ def generate_launch_description():
     use_sim_time = True
     remappings=[]
     params_yaml_file = os.path.join(my_dir, 'launch', 'nav2_params.yaml')
-    map_file = os.path.join(my_dir, 'maps', 'coppelia_map_gmapping.yaml')
+    map_file = os.path.join(my_dir, 'maps', 'mapirlab.yaml')
     
     logger = LaunchConfiguration("log_level")
     
