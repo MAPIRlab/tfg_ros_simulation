@@ -7,9 +7,6 @@
  
   # NAV2 STACK
   <include file="$(find-pkg-share missions_pkg)/launch/nav2_launch.py"/>
-  
-  # SLAM-MAPPING (map generation)
-  <!-- <include file="$(find-pkg-share missions_pkg)/launch/slam_mapping.py"/> -->
 
   # RVIZ (see rviz.launch)
 </launch>
