@@ -21,7 +21,9 @@ If the plugin cannot be loaded, then you should recompile it by yourself. It is 
     sudo apt install xsltproc 
 - Compile with:
     export COPPELIASIM_ROOT_DIR=~/path/to/coppeliaSim/folder
+    
     ulimit -s unlimited #otherwise compilation might freeze/crash
+    
     colcon build --packages-select sim_ros2_interface --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
 - Add the "COLCON_IGNORE" file to avoid further compilations
 - Copy the library to Coppelia root directory
