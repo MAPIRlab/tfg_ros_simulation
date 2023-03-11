@@ -1,6 +1,6 @@
 <launch>
 
-  # COPPELIA SIMULATOR (see rviz.launch)
+  # COPPELIA SIMULATOR (see simulator.launch)
   
   # Keyboard Control
   <include file="$(find-pkg-share keyboard_control)/launch/keyboard_control.launch"/>
@@ -8,5 +8,5 @@
   # NAV2 STACK
   <include file="$(find-pkg-share missions_pkg)/launch/nav2_launch.py"/>
 
-  # RVIZ (see rviz.launch)
+  # RVIZ (see simulator.launch)
 </launch>

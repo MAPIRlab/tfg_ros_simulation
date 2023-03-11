@@ -75,7 +75,7 @@ def generate_launch_description():
             parameters=[params_yaml_file],
             remappings=remappings),
 
-        # PLANNER (path planning)
+        # PLANNER (global path planning)
         Node(
             package='nav2_planner',
             executable='planner_server',
@@ -85,7 +85,7 @@ def generate_launch_description():
             remappings=remappings
             ),
 
-        # CONTROLLER (path following)
+        # CONTROLLER (local planner / path following)
         Node(
             package='nav2_controller',
             executable='controller_server',
@@ -96,17 +96,17 @@ def generate_launch_description():
             ),
 
         # RECOVERIES (recovery behaviours NOT YET in HUMBLE)
-        #Node(
-        #    package='nav2_recoveries',
-        #    executable='recoveries_server',
-        #    name='recoveries_server',
-        #    output='screen',
-        #    parameters=[params_yaml_file],
-        #    remappings=remappings),
+        Node(
+            package='nav2_behaviors',
+            executable='behavior_server',
+            name='behavior_server',
+            output='screen',
+            parameters=[params_yaml_file],
+            remappings=remappings),
 
 
 
-        # WAYPOINT NAV
+        # WAYPOINT NAV (app to launch the BT navigator)
         Node(
             package='nav2_waypoint_follower',
             executable='waypoint_follower',
@@ -128,6 +128,7 @@ def generate_launch_description():
                                         'planner_server',
                                         'controller_server',
                                         'bt_navigator',
+                                        'behavior_server',
                                         'waypoint_follower']
                         }
                        ]
